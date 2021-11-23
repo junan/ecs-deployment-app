@@ -3,7 +3,7 @@ name: Deploy Heroku
 on:
   workflow_run:
     workflows:
-      - Test
+      - Deploy ECR
     branches:
       - master
       - main

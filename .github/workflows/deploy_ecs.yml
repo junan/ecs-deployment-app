@@ -1,14 +1,16 @@
 name: Deploy ECR
 
-on:
-  workflow_run:
-    workflows:
-      - Test
-    branches:
-      - develop
-    types:
-      - completed
-  workflow_dispatch:
+# on:
+#   workflow_run:
+#     workflows:
+#       - Test
+#     branches:
+#       - develop
+#     types:
+#       - completed
+#   workflow_dispatch:
+
+on: push
 
 env:
   DOCKER_REGISTRY_HOST: ${{ secrets.ECR_REGISTRY_HOST }}
