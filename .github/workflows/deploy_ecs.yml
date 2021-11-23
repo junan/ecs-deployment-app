@@ -1,16 +1,14 @@
-name: Deploy ECR
+name: Deploy ECR Staging
 
-# on:
-#   workflow_run:
-#     workflows:
-#       - Test
-#     branches:
-#       - develop
-#     types:
-#       - completed
-#   workflow_dispatch:
-
-on: push
+on:
+  workflow_run:
+    workflows:
+      - Test
+    branches:
+      - develop
+    types:
+      - completed
+  workflow_dispatch:
 
 env:
   DOCKER_REGISTRY_HOST: ${{ secrets.ECR_REGISTRY_HOST }}
@@ -21,7 +19,7 @@ env:
 
 jobs:
   deploy:
-    name: Deploy to staging
+    name: Deploy to ECR Staging
     runs-on: ubuntu-latest
     steps:
       - name: Cancel previous runs

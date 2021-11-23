@@ -1,16 +1,11 @@
 name: Deploy Heroku
 
 on:
-  workflow_run:
-    workflows:
-      - Deploy ECR
-    branches:
+  push:
+    branches-ignore:
       - master
       - main
       - development
-    types:
-      - completed
-  workflow_dispatch:
 
 env:
   DOCKER_REGISTRY_HOST: ${{ secrets.DOCKER_REGISTRY_HOST }}
